@@ -26,3 +26,22 @@ function processUserActions(input) {
     }
     document.getElementById("tb").value = displayText;
 }
+
+function evaluate(expression) {
+    operator = expression.replaceAll(/\d/g,"").replaceAll('\.',"");
+    LeftSide = Number(displayText.split(operator)[0]);
+    RightSide = Number(displayText.split(operator)[1]);
+    result = null;
+
+    if (operator == "/") {
+    result = LeftSide / RightSide;
+    } else if (operator == "*"){
+    result = LeftSide * RightSide;
+    } else if (operator == "-"){
+    result = LeftSide - RightSide;
+    } else if (operator == "+"){
+    result = LeftSide + RightSide;
+    }
+
+    return result;
+}
